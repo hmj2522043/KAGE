@@ -33,14 +33,16 @@ private:
 	bool startGame = false;
 	bool isResult = false;
 
-
+	//ƒRƒ“ƒ{A—P—\
 	int killCombo = 0;
 	int comboTimer = 0;
 	static const int COMBO_TIME_LIMIT = 180;
 
+	//‰æ–ÊU“®
 	int shakeTimer = 0;
 	int shakeMagnitude = 2;
 
+	//‰ïSa‚è
 	bool isCritical = false;
 	int criticalTimer = 0;
 	static const int CRITICAL_DURATION = 60;

@@ -11,7 +11,10 @@ void Gauge::Update()
 	if (timer >= fps)
 	{
 		timer = 0;
-		if (value < maxValue) value++;
+		if (value < maxValue)
+		{
+			value++;
+		}
 	}
 }
 

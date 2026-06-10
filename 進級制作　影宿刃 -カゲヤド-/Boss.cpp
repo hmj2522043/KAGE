@@ -44,7 +44,9 @@ void Boss::Update()
 	{
 		invincibleTimer--;
 		if (invincibleTimer <= 0)
+		{
 			isInvincible = false;
+		}
 	}
 
 	hitBox.SetPos(x, y);
@@ -75,7 +77,8 @@ void Boss::TakeDamage(int damage)
 	}
 }
 
-void Boss::Reset() {
+void Boss::Reset() 
+{
 	hp = maxHp;
 	isActive = false;
 }

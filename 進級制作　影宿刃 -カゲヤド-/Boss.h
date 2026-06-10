@@ -33,7 +33,7 @@ public:
 	void Spawn(int screenWidth, int groundY);
 
 	void Update();
-	void Draw(int offsetX = 0, int offsetY = 0);
+	void Draw(int = 0, int offsetY = 0);
 
 	void TakeDamage(int damage);
 

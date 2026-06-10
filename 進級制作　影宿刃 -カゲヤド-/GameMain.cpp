@@ -67,7 +67,10 @@ void GameMain::Draw()
 	switch (state)
 	{
 	case GameState::TITLE:
-		if (titleImage != -1) DrawGraph(0, 0, titleImage, TRUE);
+		if (titleImage != -1) 
+		{
+			DrawGraph(0, 0, titleImage, TRUE);
+		}
 		break;
 
 	case GameState::PLAY:
@@ -75,13 +78,14 @@ void GameMain::Draw()
 		break;
 
 	case GameState::RESULT:
-		if (resultImage != -1) DrawGraph(0, 0, resultImage, TRUE);
+		if (resultImage != -1)
+		{
+			DrawGraph(0, 0, resultImage, TRUE);
+		}
 
-		DrawFormatString(600, 350, GetColor(255, 255, 255),
-			"SCORE : %d", finalScore);
+		DrawFormatString(600, 350, GetColor(255, 255, 255),"SCORE : %d", finalScore);
 
-		DrawFormatString(590, 450, GetColor(255, 255, 0),
-			"HI SCORE : %d", highScore);
+		DrawFormatString(590, 450, GetColor(255, 255, 0),"HI SCORE : %d", highScore);
 
 		break;
 	}
@@ -123,11 +127,12 @@ void GameMain::UpdateGamePlay()
 	}
 	special.Update();
 
-	if (CheckHitKey(KEY_INPUT_UP))		//debug
+	//確認用
+	if (CheckHitKey(KEY_INPUT_UP))
 	{
 		distance += 10;
 	}
-	if (CheckHitKey(KEY_INPUT_RIGHT))		//debug
+	if (CheckHitKey(KEY_INPUT_RIGHT))
 	{
 		player.AddSpecialGauge(100);
 	}
@@ -197,7 +202,8 @@ void GameMain::UpdateGamePlay()
 				bool sweet = dx * dx + dy * dy <= sweetRadius * sweetRadius;
 				enemy.TakeDamage(10);
 
-				if (enemy.IsDying() && sweet) {
+				if (enemy.IsDying() && sweet) 
+				{
 					player.AddSpecialGauge(5);
 				}
 
@@ -209,13 +215,16 @@ void GameMain::UpdateGamePlay()
 					maxCombo = killCombo;
 				}
 				comboTimer = COMBO_TIME_LIMIT;
+
 				shakeTimer = 5;
 				shakeMagnitude = 2;
 
-				if (sweet) {
+				if (sweet) 
+				{
 					PlaySoundMem(soundSweet, DX_PLAYTYPE_BACK);
 				}
-				else {
+				else 
+				{
 					PlaySoundMem(soundSlash, DX_PLAYTYPE_BACK);
 				}
 			}
@@ -372,16 +381,9 @@ void GameMain::DrawGamePlay()
 			DrawBox(barX, barY, barX + hpWidth, barY + barHeight, GetColor(255, 50, 50), TRUE);
 		}
 
-		DrawFormatString(		//スコア
-			1050,
-			30,
-			GetColor(255, 255, 255),
-			"SCORE : %06d",
-			score
-		);
+		DrawFormatString(1050, 30, GetColor(255, 255, 255),"SCORE : %06d", score);
 
-		DrawFormatString(1050, 60, GetColor(255, 255, 255),
-			"DIST : %dm", distance);
+		DrawFormatString(1050, 60, GetColor(255, 255, 255),"DIST : %dm", distance);
 }
 
 void GameMain::AddScore(int value)
